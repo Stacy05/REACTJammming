@@ -1,6 +1,7 @@
 import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
+//remove?
 import { SearchBar } from '../SearchBar/SearchBar';
 import { SearchResults } from '../SearchResults/SearchResults';
 import { Playlist } from '../Playlist/Playlist';
@@ -22,6 +23,8 @@ class App extends React.Component {
         this.removeTrack = this.removeTrack.bind(this);
         this.updatePlaylistName = this.updatePlaylistName.bind(this);
         this.savePlaylist = this.savePlaylist.bind(this);
+
+        // remove?
         this.search = this.search.bind(this);
 
 
@@ -65,25 +68,31 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <h1>Ja<span className="highlight">mmm</span>ing</h1>
+                <h1><sub>easily</sub> Create A <span className="highlight">Spotify</span> Playlist
+                <sup><img src={require('./Spotify_Icon_RGB_Green.png')} alt='spotify logo' className="spotifyLogo" /></sup>
+                </h1>
                 <div className="App">
                     <SearchBar onSearch={this.search} />
                     <div className='App-playlist'>
                         <SearchResults
+
                             searchResults={this.state.searchResults}
                             onAdd={this.addTrack}
                         />
                         <Playlist
-                            //playlistName={this.state.playlistName}
                             name={this.state.playlistName}
-
                             tracks={this.state.playlistTracks}
                             onRemove={this.removeTrack}
                             onNameChange={this.updatePlaylistName}
                             onSave={this.savePlaylist}
                         />
                     </div>
+                    <p><span className="info">Background image by <a href="https://unsplash.com/photos/WZ43jnCeWOs" target="_blank">Brian Kostiuk - @BriKost</a> from <a href="https://unsplash.com/" target="_blank">Unsplash</a>.</span></p>
+                    <p><span className="info">Spotify references used: <a href="https://developer.spotify.com/branding-guidelines/" target="_blank">Branding Guidelines</a> &amp; <a href="https://developer.spotify.com/documentation/web-api/" target="_blank">Web API</a>.
+                    </span></p>
+
                 </div>
+
             </div>
         )
     }

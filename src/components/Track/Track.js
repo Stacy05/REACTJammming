@@ -1,20 +1,18 @@
 import React from 'react';
 import './Track.css';
-
-//import { exportDefaultSpecifier } from '@babel/types';
+import { SearchBar } from '../SearchBar/SearchBar';
 
 export class Track extends React.Component {
 
     constructor(props) {
         super(props);
 
-        // this.state = {
-        //     track: 'track'
-        // }
-
         this.addTrack = this.addTrack.bind(this)
         this.removeTrack = this.removeTrack.bind(this)
         this.renderAction = this.renderAction.bind(this)
+
+        this.refineSearchArtist = this.refineSearchArtist.bind(this)
+        // this.refineSearchAlbum = this.refineSearchAlbum.bind(this)
     }
 
     renderAction() {
@@ -40,13 +38,21 @@ export class Track extends React.Component {
         this.props.onRemove(this.props.track);
     }
 
+    refineSearchArtist() {
+        this.props.search(this.props.track.artist);
+    }
+
+    // refineSearchAlbum() {
+    //     this.props.refineSearchAlbum(this.props.track.album)
+    // }
+
     render() {
 
         return (
             <div className="Track">
                 <div className="Track-information">
                     <h3>{this.props.track.name}</h3>
-                    <p>{this.props.track.artist} | {this.props.track.album}</p>
+                    <p><a onClick={this.refineSearchArtist}>{this.props.track.artist}</a> | <a onClick={this.refineSearchAlbum}>{this.props.track.album}</a></p>
                 </div>
                 {this.renderAction()}
             </div>
@@ -54,4 +60,3 @@ export class Track extends React.Component {
     }
 }
 
-//export default Track;
