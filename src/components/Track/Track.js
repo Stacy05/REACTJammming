@@ -1,20 +1,34 @@
 import React from 'react';
 import './Track.css';
-import { SearchBar } from '../SearchBar/SearchBar';
+//import { SearchBar } from '../SearchBar/SearchBar';
 
 export class Track extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            search: ''
+        }
+        // this.search = this.search.bind(this);
+        // this.refineSearchArtist = this.refineSearchArtist.bind(this);
+
 
         this.addTrack = this.addTrack.bind(this)
         this.removeTrack = this.removeTrack.bind(this)
         this.renderAction = this.renderAction.bind(this)
 
-        this.refineSearchArtist = this.refineSearchArtist.bind(this)
-        // this.refineSearchAlbum = this.refineSearchAlbum.bind(this)
+
     }
 
+    // search(term) {
+    //     this.props.onSearch(term);
+    // }
+
+
+    // refineSearchArtist(event) {
+    //     this.search(this.props.track.artist);
+
+    // };
     renderAction() {
         if (this.props.onRemove) {
             return <button className='Track-action' onClick={this.removeTrack}>-</button>;
@@ -38,13 +52,7 @@ export class Track extends React.Component {
         this.props.onRemove(this.props.track);
     }
 
-    refineSearchArtist() {
-        this.props.search(this.props.track.artist);
-    }
 
-    // refineSearchAlbum() {
-    //     this.props.refineSearchAlbum(this.props.track.album)
-    // }
 
     render() {
 

@@ -1,16 +1,17 @@
 import React from 'react';
 import './SearchResults.css';
-import { SearchBar } from '../SearchBar/SearchBar';
+//import { search } from '../App/App';
 import { TrackList } from '../TrackList/TrackList';
 import { Spotify } from '../../util/Spotify.js';
 
 export class SearchResults extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            search: ''
+        }
         this.search = this.search.bind(this);
 
-        //this.refineSearchArtist = this.refineSearchArtist.bind(this)
-        //this.refineSearchAlbum = this.refineSearchAlbum.bind(this)
     };
 
     search(term) {
@@ -19,14 +20,6 @@ export class SearchResults extends React.Component {
         }));
     }
 
-    // refineSearchArtist() {
-    //     //this.props.refineSearchArtist(this.props.track.artist)
-    //     this.search(this.props.track.artist);
-    // }
-
-    // refineSearchAlbum() {
-    //     this.props.refineSearchAlbum(this.props.track.album)
-    // }
     render() {
 
         return (
@@ -37,8 +30,8 @@ export class SearchResults extends React.Component {
                 <TrackList
                     tracks={this.props.searchResults}
                     onAdd={this.props.onAdd}
-                //onClick={this.refineSearchArtist}
-                //refineSearchAlbum={this.props.refineSearchAlbum}
+                    onSearch={this.props.searchResults}
+
                 />
             </div>
         );

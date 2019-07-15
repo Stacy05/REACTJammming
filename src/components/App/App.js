@@ -65,6 +65,8 @@ class App extends React.Component {
         }));
     }
 
+
+
     render() {
         return (
             <div>
@@ -75,7 +77,7 @@ class App extends React.Component {
                     <SearchBar onSearch={this.search} />
                     <div className='App-playlist'>
                         <SearchResults
-
+                            onSearch={this.search}
                             searchResults={this.state.searchResults}
                             onAdd={this.addTrack}
                         />
@@ -85,6 +87,7 @@ class App extends React.Component {
                             onRemove={this.removeTrack}
                             onNameChange={this.updatePlaylistName}
                             onSave={this.savePlaylist}
+                            onSearch={this.search}
                         />
                     </div>
                     <p><span className="info">Background image by <a href="https://unsplash.com/photos/WZ43jnCeWOs" target="_blank">Brian Kostiuk - @BriKost</a> from <a href="https://unsplash.com/" target="_blank">Unsplash</a>.</span></p>
