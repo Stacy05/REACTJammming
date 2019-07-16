@@ -9,8 +9,8 @@ export class Track extends React.Component {
         this.state = {
             search: ''
         }
-        // this.search = this.search.bind(this);
-        // this.refineSearchArtist = this.refineSearchArtist.bind(this);
+        this.search = this.search.bind(this);
+        this.refineSearchArtist = this.refineSearchArtist.bind(this);
 
 
         this.addTrack = this.addTrack.bind(this)
@@ -20,15 +20,15 @@ export class Track extends React.Component {
 
     }
 
-    // search(term) {
-    //     this.props.onSearch(term);
-    // }
+    search(term) {
+        this.props.onSearch(term);
+    }
 
 
-    // refineSearchArtist(event) {
-    //     this.search(this.props.track.artist);
+    refineSearchArtist(event) {
+        this.search(this.props.track.artist);
 
-    // };
+    };
     renderAction() {
         if (this.props.onRemove) {
             return <button className='Track-action' onClick={this.removeTrack}>-</button>;
