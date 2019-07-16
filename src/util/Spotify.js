@@ -4,7 +4,6 @@ let userAccessToken;
 const accessTokenParam = window.location.href.match(/access_token=([^&]*)/);
 const expirationParam = window.location.href.match(/expires_in=([^&]*)/);
 //dev creds and redirect
-<<<<<<< HEAD
 const clientID = '8542b47a79f644d290c868bc7ed71ebb';
 const redirectURI = 'http://localhost:3000/';
 
@@ -12,15 +11,6 @@ const redirectURI = 'http://localhost:3000/';
 // // live 
 // const clientID = 'c32b7f84f01d4685a4616ff0460213b9';
 // const redirectURI = 'https://musing-mcnulty-35c982.netlify.com';
-=======
-// const clientID = '';
-// const redirectURI = 'http://localhost:3000/';
-
-
-// // live 
-const clientID = '';
-const redirectURI = 'https://musing-mcnulty-35c982.netlify.com';
->>>>>>> 8eb10c6292f38a6270f38e15fe34ca3268ac2997
 
 
 export const Spotify = {
